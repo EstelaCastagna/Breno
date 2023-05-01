@@ -1,0 +1,365 @@
+programa
+{
+	inclua biblioteca Util-->u 
+//PEGAR O NUMERO DO LIVRO CONTABILIDADE BASICA
+cadeia gestao[][] ={{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+	               {"657","contabilidade","A024u","contabilidade basica","Osni Moura Ribeiro"},
+                    {"658","gerenciamento de projetos, A232, Administração de pequenas empresas","Moore Petty"},
+                    {"658","empreendedorismo","C351","Assistente Admnistrativo","José Antonio de Mattos Castiglioni"},
+                    {"658","rotinas administraivas","C351a","Empreendedorismo","Glauco Cavalcanti"},
+                    {"658.3","gestao de pessoas","M3395-g","gestao estraegica de pessoas","André Ofenhejm Mascarenhas"},
+                    {"658.5","gestao da produção","S631a","Admnistração da produçao","Slack Chambers johnston"},
+                    {"658.7","gestao de estoque","P667g","Gestão da Cadeia de Suprimentos","Pires"},
+                    {"658.8","marketing","S551a","Marketing Global","Amalia Sina"}}
+ 
+cadeia Mecanica[][] ={{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+                     {"62-7","mecanica","F199m","mecanica geral","Matsumura"},
+	                {"620.1","mecanica dos materiais","C886m","Mecânica dos Materiais","Roy R. Craig. Jr"},
+	                {"621.","engenharia mecanica","V397m","Energias Renovaveis","Rodnei Vecchia"}, 
+	                {"","maquinas termicas"}}
+                     //não achei essa maquinas termicas
+                     
+cadeia Eletrica[][] ={{"621.3","Engenharia eletrica","A345a","Materiais Elétricos","Walfredo Schmdt"},
+                      {"621.3.049","Circuitos Elétricos","M963a","Análise de Circuitos","Alln.H.Robbins"},
+                      {"621.31","Medição Elétrica","F182e","Eletromecânica","Aurio Gilberto Falcone"},
+                      {"621.316.17","Instalação Elétrica em edificios e vias","M264i","Instalações Eleticas Industriais","José Mamede"},
+                      {"621.316.17","Dispotivo Eletrônico","G219d","Dicionário de Eletrônica","Giacomo Gardini"},
+                      {"621.43","motores de combusstao interna","T63s","Motores de Explosão e Disiel","J.Sarmento de Beires"},//procurar codigo pois não achei ára esse
+                      {"621.51","compressores","F98l","Transferência de calor de massa","Ineropera Dewiff Bergman Lavine"},
+                      {"621.7","tecnologia mecânica","C339m","Máquinas","A.L.Casillas"},
+                      {"621.8","elementos de maquinas","P221r","Manutenção de Rolamento","SKF"},
+                      {"621.99","usinagem","K82m","Manual do Ferramenteiro","J.de Koninck e D Gutter"},
+                      {"626","Hidráulica","A994M","Manual de Hidráulica","Azevedo Netto"}}
+                      
+cadeia aut[][] ={{"681.2","Instrumentação","B172i","Instrumentação e Fundamentos de Medidas","Balbinot Brusamarello"},
+                 {"681.5","Automação e Controle","C423m","Mecatronica","Cetinkunt"},
+                 {"669","Construção Civil","G427m","Manual do Encanador Industrial","Antonio Ghizze"},
+                 {"744","Desenho Técnico","D451","Desenho Tecnico Moderno","Arlindo Silva"}}
+                 
+cadeia Ti[][]= {{"001.8","metodologia","S618i","Introdução a Tec. da informação","Michael sipser"},
+               {"004","informatica","C419n","Metodologia Cientifica","Cervo Bervian da Silva"},
+               {"004.056","qualidade dos sistemas e do software","C525f","Firewall e Segurança na Internet","Aviel D.Rubin"},
+               {"004.2","arquitetura dos computadores","T56n","Organização Estruturada de Computadores","Andrew S Tenenbaum"},
+               {"004.3","hardware","F245l","Lógica e Desing de Programação","Joyce Farrell"},
+               {"004.43","linguagem de programação","A2855e","Compiladores","Aho,Lam,Sethi e Ullman"},
+               {"004.451","interface","N633o","Manual Completo do Linux","Trent R."},
+               {"004.7","redes de computadores","K95r","Redes de Computadores e a Internet","Kurose Ross"}} 
+
+cadeia automotiva[][]={{"629.02","Prep. de tintas para pintura","S491p","Tecnologia da Repintura","Henry Fleming Payne"},
+                        {"629.331","Prep. de Pintura Automotiva","S491p","Sistema de Transmissão","Jessé Luís Padilha"}}
+                                
+ 
+cadeia literatura[][]={{"71.1","Literatura Estrangeira-Aventura e Ficção","D886e","O Conde de Monte Criste","Aleandre Dumas"},
+                       {"72.2","Literatura brasileira","D667","Silvio Santos","Arlindo Silva"}}
+	                 //na categoria literatura tem a sub-categoria literatura brasileira mas não tenho foto	  
+
+cadeia Matematica[][]={{"51","Matemática","A634g","Álgebra Linear","Howard Anton"},
+                       {"53","Física","g635f","Física e realidade","Aurelio Filho Goncalves"},
+                       {"54","Química","R964q","Química Geral","Russel John B."},
+                       {"551","Geologia","W633f","Fundamentos de Geologia","Wicander Monroe"},
+                       {"573","Biologia","A398c","Ecologia dos Pobres","Joan Martinez Alier"}}
+	   
+	   inteiro tempo_i = 1 , tempo_f = 2
+		cadeia login[3], senha[3]
+
+	funcao inicio(){   
+		cadeia esc
+
+		escreva("já possui uma conta?(S/N)\n")
+		leia(esc)  
+
+          se ((esc == "S") ou (esc == "s" ))
+     {
+  	     limpa()
+  	     escreva("direcionando para o LOGIN\n")
+  	     enquanto (tempo_i<=tempo_f) 
+  	{
+		escreva (tempo_i, " ")
+		u.aguarde(1000)
+		tempo_i++
+		limpa()
+		escreva("direcionando para o LOGIN\n")
+			
+	}
+		     logar()
+			limpa()
+  
+  	}
+
+        senao se ((esc == "N")ou(esc == "n")){
+  	   limpa()
+  	   escreva("direcionando para o CADASTRO\n")
+  	   enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i, " ")
+			u.aguarde(1000)
+			tempo_i++
+			limpa()
+			escreva("direcionando para o CADASTRO\n")
+	}
+		     cadastro()
+			limpa()
+	}
+        senao 
+     {
+  	   limpa()
+  	   inicio()
+	}
+	}
+funcao cadastro(){
+       inteiro cads
+       escreva("deseja cadastrar quantos usuarios?(Maximo 3 usuarios)")
+       leia(cads)
+       limpa()
+       para(inteiro i = 0; i< cads;i++){
+       	escreva("digite o login desejado:")
+       	leia(login[i])
+       	escreva("digite a senha desejada")
+       	leia(senha[i])
+       	limpa()}
+       	logar()
+}
+funcao logar(){
+          cadeia log, sen
+           
+		escreva("digite seu login")
+		leia(log)
+		escreva("digite sua senha")
+		leia(sen)
+
+		se(log == login[0] e sen == senha[0]){
+			limpa()
+	       escreva("bem vindo")
+	       mainmenu()
+	}
+	     senao se(log == login[1] e sen == senha[1]){
+	     	limpa()
+	       escreva("bem vindo")
+	       mainmenu()}
+
+	     senao se(log == login[2] e sen == senha[2]){
+	     	limpa()
+	       escreva("bem vindo")
+	       mainmenu()}
+
+	     senao {
+	          escreva("senha ou login incorreto, tente novamente")
+	          logar()
+	     }
+}
+
+
+funcao ALcadas(){
+
+
+       escreva("----------LISTA DE ALUNOS CADASTRADOS--------")
+       escreva(login[1], "\t\t",login[2],"\t\t",login[3])
+       escreva("---------------------------------------------")
+}
+
+
+
+
+
+
+
+
+
+funcao mainmenu(){
+	inteiro opc
+
+    escreva("\n----------------MENU----------------\n") 
+    escreva("1- Catálogo\n")
+    escreva("2- Localização.\n")
+    escreva("3 -Emprestimo/Devolução.\n")
+    escreva("4- Cadastro de livro.\n")
+    escreva("5- Relatório. \n")//informar atrasos de livro, quantos foram emprestados e quantos foram emprestados
+    escreva("6 - finalizar \n")
+    escreva("\n-------------------------------------\n") 
+    escreva("Informe a função desejada: ")
+    leia(opc)
+    limpa()
+
+   escolha(opc)
+   {
+     caso 1:   
+     catalogo()
+     pare
+     
+     caso 2:     
+     pare
+     
+     caso 3:
+     pare
+     
+     caso 6:
+     escreva("Obrigado, volte sempre.\n")
+     pare
+     caso contrario:
+     escreva ("Opção inválida!")
+     mainmenu()
+   }
+  } 
+
+
+
+funcao catalogo()
+	{
+		 
+		inteiro voltar, opc
+
+		escreva("     Biblioteca - Matérias\n")
+		escreva("*******************************\n")
+		escreva("1) Gestão\n")
+		escreva("2) Automação Industrial\n")
+		escreva("3) Tecnologia de Informação\n")
+		escreva("4) Matemática\n")
+		escreva("5) Mecânica\n")
+		escreva("6) Elétrica\n")
+		escreva("7) automotiva")
+		escreva("8) Voltar\n")
+		escreva("*******************************\n")  
+		escreva("Informe a opção desejada: ")
+		leia(opc)
+		limpa()
+
+		escolha(opc){
+		caso 1:
+		gest()
+		catalogo()
+
+		pare
+		caso 2:
+          automacao()
+		pare
+		caso 3:
+          ti()
+		pare
+		caso 4:
+          matematica()
+		pare
+		caso 5:
+
+		pare
+		caso 6:
+	     eletrica()
+		pare
+
+		caso 7:
+		Automotiva()
+		pare
+		
+		caso 8:
+          mainmenu()
+		pare
+		caso contrario :
+		escreva("\nOpção invalida. digite 1 para voltar e 2 para sair")
+		escreva("Informe a opção desejada: ")
+		leia(voltar)
+		limpa()
+		se (voltar == 1){
+		}
+		senao se (voltar == 2){
+		escreva("Até a próxima!\n")
+	      }
+		senao{
+		escreva("Opção inválida!\n")
+		}
+
+	}
+     }
+
+funcao automacao(){
+	
+		para (inteiro l = 0; l<4; l++){
+			para (inteiro c = 0; c<5; c++){
+			escreva(aut[l][c],"\t\t")}
+		escreva("\n")
+	     }
+
+
+}
+
+funcao ti(){
+				      
+     para (inteiro l = 0; l<4; l++){
+			para (inteiro c = 0; c<5; c++){
+			escreva(Ti[l][c],"\t\t")
+		}
+		escreva("\n")
+		} 
+}
+
+
+
+
+
+
+    
+funcao matematica() {
+	para (inteiro l = 0; l<5; l++){
+			para (inteiro c = 0; c<6; c++){
+			escreva(Matematica[l][c]," \t\t")
+		}
+		escreva("\n")
+		}
+
+
+
+    }	
+
+
+funcao eletrica(){
+	para (inteiro l = 0; l<5; l++){
+			para (inteiro c = 0; c<6; c++){
+			escreva(Eletrica[l][c]," \t\t")
+}
+escreva("\n")
+	}
+}
+funcao Automotiva(){
+para (inteiro l = 0; l<5; l++){
+			para (inteiro c = 0; c<6; c++){
+			escreva(automotiva[l][c]," \t\t")
+	
+}
+escreva("\n")
+	}
+}
+
+funcao meca(){
+	para (inteiro l = 0; l<5; l++){
+			para (inteiro c = 0; c<6; c++){
+			escreva(Mecanica[l][c]," \t\t")
+}
+escreva("\n")
+	}
+}
+
+funcao lit(){
+	para (inteiro l = 0; l<5; l++){
+			para (inteiro c = 0; c<6; c++){
+			escreva(literatura[l][c]," \t\t")
+}
+escreva("\n")
+	}
+}
+
+
+funcao gest(){
+	para (inteiro l = 0; l<5; l++){
+			para (inteiro c = 0; c<6; c++){
+			escreva(gestao[l][c]," \t\t")
+}
+escreva("\n")
+	}
+
+}
+}
+
+
+
+
+
+
+
+ 
