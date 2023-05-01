@@ -1,0 +1,561 @@
+programa
+{
+	inclua biblioteca Util-->u
+	inteiro tempo_i = 1 , tempo_f = 2
+ cadeia gestao[][] ={{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+	               {"657","contabilidade","A024u","contabilidade basica","Osni Moura Ribeiro"},
+                    {"658","gerenciamento de projetos", "A232", "Administração de pequenas empresas","Moore Petty"},
+                    {"658","empreendedorismo","C351","Assistente Admnistrativo","José Antonio de Mattos Castiglioni"},
+                    {"658","rotinas administraivas","C351a","Empreendedorismo","Glauco Cavalcanti"},
+                    {"658.3","gestao de pessoas","M3395-g","gestao estraegica de pessoas","André Ofenhejm Mascarenhas"},
+                    {"658.5","gestao da produção","S631a","Admnistração da produçao","Slack Chambers johnston"},
+                    {"658.7","gestao de estoque","P667g","Gestão da Cadeia de Suprimentos","Pires"},
+                    {"658.8","marketing","S551a","Marketing Global","Amalia Sina"}}
+ 
+cadeia Mecanica[][] ={{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+                     {"62-7","mecanica","F199m","mecanica geral","Matsumura"},
+	                {"620.1","mecanica dos materiais","C886m","Mecânica dos Materiais","Roy R. Craig. Jr"},
+	                {"621.","engenharia mecanica","V397m","Energias Renovaveis","Rodnei Vecchia"}, 
+	                {"621.1","maquinas termicas","M152e","Equipamentos Industriais de Protogolo"}}
+                     //não achei essa maquinas termicas
+                     
+cadeia Eletrica[][] ={{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+	                 {"621.3","Engenharia eletrica","A345a","Materiais Elétricos","Walfredo Schmdt"},
+                      {"621.3.049","Circuitos Elétricos","M963a","Análise de Circuitos","Alln.H.Robbins"},
+                      {"621.31","Medição Elétrica","F182e","Eletromecânica","Aurio Gilberto Falcone"},
+                      {"621.316.17","Instalação Elétrica em edificios e vias","M264i","Instalações Eleticas Industriais","José Mamede"},
+                      {"621.316.17","Dispotivo Eletrônico","G219d","Dicionário de Eletrônica","Giacomo Gardini"},
+                      {"621.43","motores de combusstao interna","T63s","Motores de Explosão e Disiel","J.Sarmento de Beires"},//procurar codigo pois não achei ára esse
+                      {"621.51","compressores","F98l","Transferência de calor de massa","Ineropera Dewiff Bergman Lavine"},
+                      {"621.7","tecnologia mecânica","C339m","Máquinas","A.L.Casillas"},
+                      {"621.8","elementos de maquinas","P221r","Manutenção de Rolamento","SKF"},
+                      {"621.99","usinagem","K82m","Manual do Ferramenteiro","J.de Koninck e D Gutter"},
+                      {"626","Hidráulica","A994M","Manual de Hidráulica","Azevedo Netto"}}
+                      
+cadeia aut[][] ={{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+	            {"681.2","Instrumentação","B172i","Instrumentação e Fundamentos de Medidas","Balbinot Brusamarello"},
+                 {"681.5","Automação e Controle","C423m","Mecatronica","Cetinkunt"},
+                 {"669","Construção Civil","G427m","Manual do Encanador Industrial","Antonio Ghizze"},
+                 {"744","Desenho Técnico","D451","Desenho Tecnico Moderno","Arlindo Silva"}}
+                 
+cadeia Ti[][]= {{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+	          {"001.8","metodologia","S618i","Introdução a Tec. da informação","Michael sipser"},
+               {"004","informatica","C419n","Metodologia Cientifica","Cervo Bervian da Silva"},
+               {"004.056","qualidade dos sistemas e do software","C525f","Firewall e Segurança na Internet","Aviel D.Rubin"},
+               {"004.2","arquitetura dos computadores","T56n","Organização Estruturada de Computadores","Andrew S Tenenbaum"},
+               {"004.3","hardware","F245l","Lógica e Desing de Programação","Joyce Farrell"},
+               {"004.43","linguagem de programação","A2855e","Compiladores","Aho,Lam,Sethi e Ullman"},
+               {"004.451","interface","N633o","Manual Completo do Linux","Trent R."},
+               {"004.7","redes de computadores","K95r","Redes de Computadores e a Internet","Kurose Ross"}} 
+
+cadeia automotiva[][]={{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+	                   {"629.02","Prep. de tintas para pintura","S491p","Tecnologia da Repintura","Henry Fleming Payne"},
+                        {"629.331","Prep. de Pintura Automotiva","S491p","Sistema de Transmissão","Jessé Luís Padilha"}}
+                                
+ 
+cadeia literatura[][]={{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+                       {"71.1","Literatura Estrangeira-Aventura e Ficção","D886e","O Conde de Monte Criste","Aleandre Dumas"},
+                       {"72.2","Literatura brasileira","D667","Silvio Santos","Arlindo Silva"}}
+	                 //na categoria literatura tem a sub-categoria literatura brasileira mas não tenho foto	  
+
+cadeia Matematica[][]={{"codigo da categoria","categoria","codigo do livro","livro","autor"},
+                       {"51","Matemática","A634g","Álgebra Linear","Howard Anton"},
+                       {"53","Física","g635f","Física e realidade","Aurelio Filho Goncalves"},
+                       {"54","Química","R964q","Química Geral","Russel John B."},
+                       {"551","Geologia","W633f","Fundamentos de Geologia","Wicander Monroe"},
+                       {"573","Biologia","A398c","Ecologia dos Pobres","Joan Martinez Alier"}}
+	
+	funcao inicio(){
+          inteiro opc,opcg,opcaut,opcti,opcmat,opcmec,opcautomo
+		
+		escreva("Qual é a sessão do livro desejado?\n")
+		escreva("1) Gestão\n")
+		escreva("2) Automação Industrial\n")
+		escreva("3) Tecnologia de Informação\n")
+		escreva("4) Matemática\n")
+		escreva("5) Mecânica\n")
+		escreva("6) Elétrica\n")
+		escreva("7) automotiva")
+		escreva("8) Voltar\n")
+		escreva("---------------------------------------\n")  
+		escreva("Informe a opção desejada: ")
+		leia(opc)
+           
+escolha(opc){
+caso 1:
+		  escreva("qual a subsessão do livro desejado?\n")
+		  escreva("1-contabilidade.\n")
+		  escreva("2-gerenciamento de projetos.\n")
+		  escreva("3-empreendedorismo.\n")
+		  escreva("4-rotinas administrativas.\n")
+		  escreva("5-gestão de pessoas.\n")
+		  escreva("6-gestão de produção.\n")
+		  escreva("7-gestao de estoque.\n")
+		  escreva("8-marketing.\n")
+		  leia(opcg) 
+
+		      escolha(opcg){
+		      caso 1:
+		          
+		       para(inteiro l= 1;l<2;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         
+		         pare
+		         caso 2:
+		          
+		       para(inteiro l= 2;l<3;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         pare
+		         caso 3:
+		          
+		       para(inteiro l= 3;l<4;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         pare
+		         caso 4:
+		          
+		       para(inteiro l= 4;l<5;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		       }
+		         pare
+		         caso 5:
+		          
+		       para(inteiro l= 5;l<6;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         pare
+		         caso 6:
+		          
+		       para(inteiro l= 6;l<7;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		       }
+		         pare
+		         caso 7:
+		          
+		       para(inteiro l= 7;l<8;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         pare
+		         caso 8:
+		          
+		       para(inteiro l= 8;l<9;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         pare
+		      
+pare
+		      }
+	
+caso 2:
+		  escreva("qual a subsessão do livro desejado?")
+		  escreva("1-instruimentação.")
+		  escreva("2-automaçao e controle.")
+		  escreva("3-construção civil.")
+		  escreva("4-desenho tecnico.")
+		  leia(opcaut)
+		  escolha(opcaut){
+		  caso 1:
+		          
+		       para(inteiro l= 1;l<2;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(aut[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         
+		         pare
+		         caso 2:
+		          
+		       para(inteiro l= 2;l<3;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(aut[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         pare
+		         caso 3:
+		         
+		       para(inteiro l= 3;l<4;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(aut[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         pare
+		         caso 4:
+		          
+		       para(inteiro l= 4;l<5;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(aut[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         pare		  
+		  }
+pare
+caso 3:
+		  escreva("qual a subsessão do livro desejado?")
+		  escreva("1-metodologia.")
+		  escreva("2-informatica.")
+		  escreva("3-qualidade dos sistemas e do software.")
+		  escreva("4-arquitetura dos computadores .")
+		  escreva("5-hardware")
+		  escreva("6-linguagem de programaçao")
+		  escreva("7-interface")
+		  escreva("8-redes de computadores")
+		  leia(opcti)
+
+		  escolha(opcti){
+		  caso 1:
+		          
+		       para(inteiro l= 1;l<2;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Ti[l][c],"\t\t")
+		  }
+		           
+		           escreva("\n")
+		  }
+		         
+		         pare
+		         caso 2:
+		          
+		       para(inteiro l= 2;l<3;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Ti[l][c],"\t\t")
+		           
+		  }
+		           escreva("\n")
+		  }
+		         pare
+		         caso 3:
+		          
+		       para(inteiro l= 3;l<4;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Ti[l][c],"\t\t")
+		           
+		  }
+		           escreva("\n")
+		  }
+		         pare
+		         caso 4:
+		          
+		       para(inteiro l= 4;l<5;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Ti[l][c],"\t\t")
+		           
+		  }
+		           escreva("\n")
+		  }
+		         pare
+		         caso 5:
+		          
+		       para(inteiro l= 5;l<6;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Ti[l][c],"\t\t")
+		  }
+		           
+		           escreva("\n")
+		  }
+		         pare
+		         caso 6:
+		          
+		       para(inteiro l= 6;l<7;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Ti[l][c],"\t\t")
+		           
+		  }
+		           escreva("\n")
+		  }
+		         pare
+		         caso 7:
+		          
+		       para(inteiro l= 7;l<8;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Ti[l][c],"\t\t")
+		  }
+		           
+		           escreva("\n")
+		  }
+		         pare
+		         caso 8:
+		          
+		       para(inteiro l= 8;l<9;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Ti[l][c],"\t\t")
+		           
+		  }
+		           escreva("\n")
+		  }
+		         pare
+		  }
+pare
+		  
+caso 4:
+		  escreva("qual a subsessão do livro desejado?")
+		  escreva("1-matematica.")
+		  escreva("2-fisica.")
+		  escreva("3-quimica.")
+		  escreva("4-geologia .")
+		  escreva("5-biologia")
+		  leia(opcmat)
+
+		  escolha(opcmat){
+		  caso 1:
+		          
+		       para(inteiro l= 1;l<2;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Matematica[l][c],"\t\t")
+		           
+	}
+		           escreva("\n")
+	}
+		         
+		         pare
+		         caso 2:
+		          
+		       para(inteiro l= 2;l<3;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Matematica[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		       }
+		         pare
+		         caso 3:
+		          
+		       para(inteiro l= 3;l<4;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Matematica[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		       }
+		       
+		         pare
+		         caso 4:
+		          
+		       para(inteiro l= 4;l<5;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Matematica[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		       }
+		         pare
+		  }
+pare
+		  
+
+caso 5:
+            escreva("qual a subsessão do livro desejado?")
+		  escreva("1-mecanica")
+		  escreva("2-mecanica dos materiais.")
+		  escreva("3-engenharia mecanica")
+		  escreva("4-Maquinas términas.")
+
+		  escolha(opcg){
+		  caso 1:
+		          
+		       para(inteiro l= 1;l<2;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Mecanica[l][c],"\t\t")
+		           
+	}	           
+		           escreva("\n")
+	}
+		         
+		         pare
+		         caso 2:
+		          
+		       para(inteiro l= 2;l<3;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Mecanica[l][c],"\t\t")
+	}	           
+		           
+		           escreva("\n")
+	}
+		         pare
+		         caso 3:
+		          
+		       para(inteiro l= 3;l<4;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Mecanica[l][c],"\t\t")
+		           
+	}	           
+		           escreva("\n")
+	}
+		         pare
+		         caso 4:
+		          
+		       para(inteiro l= 4;l<5;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Mecanica[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		       }
+		       
+		         pare
+		  }
+pare
+		  
+caso 6:
+		  escreva("qual a subsessão do livro desejado?")
+		  escreva("1-engenharia eletrica.")
+		  escreva("2-circuitos eletricos.")
+		  escreva("3-mediçao eletrica.")
+		  escreva("4-Instalação Elétrica em edificios e vias .")
+		  escreva("5-Dispotivo Eletrônico.")
+		  escreva("6-motores de combusstao interna.")
+		  escreva("7-compressores.")
+		  escreva("4-tecnologia mecânica.")
+		  escreva("5-elementos de maquinas.")
+		  escreva("6-usinagem.")
+		  escreva("7-hidraulica.")
+		  leia(opcmec)
+		  escolha(opcmec){
+		  caso 1:
+		          
+		       para(inteiro l= 1;l<2;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Eletrica[l][c],"\t\t")
+	}	           
+		           
+		           escreva("\n")
+	}
+		         
+		         pare
+		         caso 2:
+		          
+		       para(inteiro l= 2;l<3;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Eletrica[l][c],"\t\t")
+	}
+		           
+		           escreva("\n")
+	}
+		         pare
+		         caso 3:
+		          
+		       para(inteiro l= 3;l<4;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Eletrica[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		       }
+		         pare
+		         caso 4:
+		          
+		       para(inteiro l= 4;l<5;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Eletrica[l][c],"\t\t")
+		           
+	}
+		           escreva("\n")
+	}
+		         pare
+		         caso 5:
+		          
+		       para(inteiro l= 5;l<6;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Eletrica[l][c],"\t\t")
+		           
+	                 }
+		           escreva("\n")
+	                }
+		         pare
+		         caso 6:
+		          
+		       para(inteiro l= 6;l<7;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Eletrica[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		       }
+		         pare
+		         caso 7:
+		          
+		       para(inteiro l= 7;l<8;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(Eletrica[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		           }
+		         pare
+		  }
+pare
+caso 7:
+          escreva("Qual é a sessão do livro desejado?")
+		escreva("1) Prep. de tintas para pintura\n")
+		escreva("2) Prep. de Pintura Automotiva \n")
+		leia(opcautomo)
+		escolha(opcautomo){
+		caso 1:
+		          
+		       para(inteiro l= 1;l<2;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           
+		           }
+		           escreva("\n")
+		       }
+		         
+		         pare
+		 caso 2:
+		          
+		       para(inteiro l= 2;l<3;l++){
+		           para(inteiro c = 2;c<5;c++){
+		           escreva(gestao[l][c],"\t\t")
+		           }
+		           
+		           escreva("\n")
+		       }
+		         pare
+		}
+		
+      pare
+}
+	}
+
+}
